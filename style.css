@@ -1,0 +1,905 @@
+/* 全体設定ここから */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    font-family: "Noto Sans", sans-serif;
+    /* font-family: "Lora", serif; */
+}
+
+img {
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+      display: inline-block;
+  background: white;
+  color: white;
+  border-radius: 999px;
+  padding: 10px 20px;
+  position: relative;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+h1 {
+    font-family: monospace, serif;
+    font-size: 96px;
+    border-bottom: solid 1px #333;
+    color: #333;
+    line-height: 1;
+    padding-bottom: 10px;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+.skill-name,
+.banner-name,
+.web-name,
+.video-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1144px;
+    margin-inline: auto;
+    /* background-color: red; */
+}
+
+/* design-wrapperには背景色の設定する（画面幅いっぱいにひろがる） */
+
+header {
+    background-color: white ;
+    color: #fff;
+    height: 48px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    /* padding: 12px 0; */
+        /* padding: 3% 0; */
+}
+
+/* header nav */
+header .pc-nav {
+    height: 100%;
+}
+
+/* header ul */
+ /* ナビ全体中央ぞろえ */
+.pc-nav ul {
+     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+/* 各リンクのラッパー */
+.pc-nav li {
+  position: relative;
+}
+
+/* 通常時のリンク */
+.pc-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 20px; /* テキストのみに合わせたpadding */
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  width: fit-content; /* ←これで中身にぴったり */
+}
+
+/* アイコンくん（初期は右外に非表示） */
+
+header {
+    background-color: #333 ;
+    color: #fff;
+    height: 48px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+        /* padding: 3% 0; */
+}
+
+/* header nav */
+header .pc-nav {
+    height: 100%;
+}
+
+/* header ul */
+ /* ナビ全体中央ぞろえ */
+.pc-nav ul {
+     background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+    margin: 0 auto;
+    list-style: none;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+/* 各リンクのラッパー */
+.pc-nav li {
+  position: relative;
+}
+
+/* 通常時のリンク */
+.pc-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 20px; /* テキストのみに合わせたpadding */
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  width: fit-content; /* ←これで中身にぴったり */
+}
+
+/* アイコンくん（初期は右外に非表示） */
+.pc-nav .icon {
+  position: absolute; /* ← ここがポイント！ */
+  left: 0;
+  transform: translateX(-100%); /* 見えない位置に */
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ホバー時のリンク全体 */
+.pc-nav a:hover {
+  padding-left: 28px; /* ホバー時だけ左に余白追加 */
+}
+
+/* ホバー時：absolute → static に戻して inline で表示させる！ */
+.pc-nav a:hover .icon {
+  position: static; /* ← inlineに戻す！ */
+  transform: translateX(0);
+  opacity: 1;
+  margin-right: 8px;
+}
+
+/* アイコン画像調整 */
+.pc-nav .icon img {
+  display: block;
+  width: 100%;
+  height: auto;}
+
+
+/* ホバー時のリンク全体 */
+.pc-nav a:hover {
+  padding-left: 28px; /* ホバー時だけ左に余白追加 */
+}
+
+/* ホバー時のアイコン出現！ */
+.pc-nav a:hover .icon {
+  transform: translateX(0);
+  opacity: 1;
+  margin-right:8px; /* テキストとアイコンの間に余白！ */
+}
+
+/* アイコン画像調整 */
+.pc-nav .icon img {
+  display: block;
+  width: 100%;
+  height: auto;}
+
+
+/* =============================================== */
+
+/* TOPへ戻るボタン */
+.scroll-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+  font-family: 'Noto Sans', sans-serif;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 9999; /* ← 潜り込まないように最前面 */
+}
+
+.scroll-button:hover {
+  transform: scale(1.1);
+}
+
+.scroll-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateText 15s linear infinite;
+}
+
+.scroll-text text {
+  font-size: 12px;
+  fill: #1b1464;
+  letter-spacing: 2px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #1b1464;
+  pointer-events: none;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    height: 100px;
+    background-color: #333;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* footer div pでもOK　勉強のために下記は書いている */
+footer div p:nth-of-type(1),
+footer div p:nth-of-type(2) {
+    font-size: 10px;
+}
+
+/* 全体の設定ここまで */
+.top-hero {
+    background-image: url(../images/hero-img-test.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.top-hero p {
+    text-align: center;
+    font-size: 40px;
+    line-height: 1;
+    padding-top: 10px;
+    letter-spacing: 0.15rem;
+}
+
+#profile,
+#skill,
+#banner,
+#web,
+#video,
+#like {
+    margin-bottom: 100px;
+    padding-top: 150px;
+    margin-top: -150px;
+}
+
+h2 {
+    font-family:monospace, serif;
+    font-size: 56px;
+    color: #333;
+    /* margin-bottom: 50px; */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-box {
+    display: flex;
+    justify-content: center;
+    padding: 0 3%;
+}
+
+.profile-box p {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-box figure img {
+    width: 280px;
+}
+
+.profile-name {
+    font-size: 24px;
+    margin-right: 1em;
+}
+
+
+
+
+.skill-box ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    text-align: justify;
+    padding: 0 3%;
+}
+
+.skill-box li {
+    width: calc((100% - 96px)/4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.skill-box figure img {
+    width: 128px;
+}
+
+#design {
+    margin-bottom: 100px;
+}
+
+h3 {
+    font-family: monospace, serif;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.design-wrapper {
+    background-color: #333;
+    padding: 50px 0;
+}
+
+.banner-box ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 32px;
+    justify-content: center;
+    text-align: justify;
+    align-items: start;
+  
+}
+
+.banner-box li {
+    display: grid;
+    justify-items: center;
+}
+
+
+/* banner説明文　ちょっと調整 */
+.banner-contents {
+    display: block;
+}
+
+.banner-txt {
+    color: #fff;
+}
+
+
+
+.web-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;         /* 楕円防止 */
+  background: transparent;  /* 背景リセット */
+}
+
+.web-box figure {
+  margin: 0;
+}
+
+.web-box a {
+  display: block;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.web-box ul {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(464px, 1fr)); */
+    gap: 32px;
+    text-align: justify;
+    grid-template-columns: 1fr 1fr;
+}
+
+.web-box li {
+    display: grid;
+    justify-items: center;
+    background: transparent;   /* 念のため背景色リセット */
+}
+
+
+video {
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.video-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* grid version */
+    /* display: grid;
+    justify-items: center; */
+}
+
+
+/* 完成からの貼り付けここから */
+
+/* Swiperの滑らかさを向上させるCSS */
+.swiper-wrapper {
+    /* transition-timing-functionを線形に設定 */
+    transition-timing-function: linear !important;
+}
+
+
+/* ハンバーガーメニューここから */
+.pc-nav {
+    display: block;
+}
+
+.sp-nav {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: -120%;
+    width: 100%;
+    height: 100vh;
+    background: #999;
+    transition: all 0.6s;
+}
+
+.sp-nav.panelactive {
+    right: 0;
+}
+
+
+.sp-nav ul {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sp-nav li {
+    list-style: none;
+    text-align: center;
+    width: 120px;
+}
+
+.sp-nav li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+.sp-open-btn {
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+.sp-open-btn span {
+    display: inline-block;
+    transition: all 0.4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #fff;
+    width: 45%;
+}
+
+.sp-open-btn span:nth-of-type(1) {
+    top: 15px;
+}
+
+.sp-open-btn span:nth-of-type(2) {
+    top: 23px;
+}
+
+.sp-open-btn span:nth-of-type(3) {
+    top: 31px;
+}
+
+.sp-open-btn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.sp-open-btn.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.sp-open-btn.active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+body.active {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* コンテンツフェードインここから */
+.effect-fade {
+    opacity: 0;
+    transform: translate(0, 100px);
+    transition: all 2000ms;
+}
+
+.effect-scroll {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* 完成からの貼り付けここまで */
+
+
+
+.back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 40px;
+    background-color: #333;
+
+    margin-inline: auto;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.lp-container {
+    max-width: 1144px;
+    margin-top: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+
+
+.web-txt {
+    color: white;
+}
+
+
+
+
+
+/* sp-nav 初期状態は非表示にしておくといいよ！ */
+.sp-nav {
+  display: none;
+  /* その他のスタイルはそのままでOK！ */
+}
+
+
+
+.pc-nav {
+  display: block;
+}
+.sp-nav {
+  display: none;
+}
+.sp-open-btn {
+  display: none;
+}
+
+
+
+
+
+
+
+
+/* ===============スマートフォン版ここから=============== */
+
+@media (max-width:520px) {
+
+    #profile,
+    #skill,
+    #banner,
+    #web,
+    #video,
+    #like {
+        margin-bottom: 80px;
+    }
+
+
+
+
+
+    h1 {
+        font-size: 64px;
+    }
+
+    .top-hero p {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 40px;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding: 0 3%;
+    }
+
+    .profile-box {
+        flex-direction: column-reverse;
+    }
+
+    .profile-box figure img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .profile-box p {
+        width: 100%;
+    }
+
+    .skill-box li {
+        width: calc((100% - 32px) / 2);
+    }
+
+    .web-box ul {
+        grid-template-columns: 1fr;
+    }
+
+    video {
+        width: 100%;
+    }
+
+    /* .pc-nav {
+        display: none;
+    } */
+
+    /* .sp-open-btn {
+        display: block;
+    } */
+
+
+/* 書き加え */
+.sp-nav li {
+    margin-bottom: 55px;
+}
+
+.scroll-button {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* likeの画像を中央表示 */
+   #like .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 画像サイズ調整（必要なら） */
+#like .swiper-slide img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* swiper自体に幅指定（崩れ防止） */
+#swiper-slider {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+/* navボタンメディアクエリ */
+@media screen and (max-width: 680px) {
+  .pc-nav {
+    display: none;
+  }
+
+  .sp-nav {
+    display: block;
+  }
+
+  .sp-open-btn {
+    display: block; /* ← ここも入れるとOK！ */
+  }
+}
+
+
+/* headerの表示崩れ調整中　まだ未完成 */
+/* PC用ヘッダー（681px〜） */
+@media screen and (min-width: 681px) {
+  .header-pc {
+    display: flex;
+  }
+
+  .header-sp {
+    display: none;
+  }
+
+  .header-pc .header__logo {
+    padding-left: 40px;
+  }
+
+  .header-pc .header__nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+  }
+
+  .header-pc .header__nav li {
+    padding: 10px 0 10px 40px;
+    font-size: 18px;
+  }
+}
+
+/* 中間：ヘッダーだけSPにする（521〜680px） */
+@media screen and (min-width: 521px) and (max-width: 680px) {
+  .header-pc {
+    display: none;
+  }
+
+  .header-sp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .header-sp .header__logo {
+    padding-left: 0;
+  }
+
+  .header-sp .header__nav {
+    display: none; /* ハンバーガーで開くならここは閉じた状態でOK */
+  }
+}
+
+/* 完全SP（〜520px） */
+@media screen and (max-width: 520px) {
+  .header-pc {
+    display: none;
+  }
+
+  .header-sp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .header-sp .header__logo {
+    padding-left: 0;
+  }
+
+  .header-sp .header__nav {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
