@@ -880,6 +880,19 @@ body.active {
   }
 }
 
+@media (max-width: 680px) {
+  header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .main-nav, .cta-buttons {
+    width: auto;
+    display: inline-flex;
+  }
+}
+
 
 
 
